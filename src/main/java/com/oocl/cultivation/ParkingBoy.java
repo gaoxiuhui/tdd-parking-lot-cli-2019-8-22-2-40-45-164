@@ -1,14 +1,19 @@
 package com.oocl.cultivation;
 
+import java.util.ArrayList;
+
 public class ParkingBoy {
 
-    private final ParkingLot parkingLot;
-    private String lastErrorMessage;
-
-    public ParkingBoy(ParkingLot parkingLot) {
+    private  ParkingLot parkingLot; //定义一个停车场
+    private String lastErrorMessage; //返回错误信息   
+	private ArrayList<ParkingLot> list;
+    public ParkingBoy(ParkingLot parkingLot) { //传入一个对象 停车场
         this.parkingLot = parkingLot;
     }
-
+    public ParkingBoy(ArrayList<ParkingLot> list) { //传入一个对象 停车场        
+        list.add(parkingLot);
+    	this.list = list;
+    }
     public ParkingTicket park(Car car) {
         if (car != null && this.parkingLot.getCars().size() < this.parkingLot.getCapacity()) {
             ParkingTicket parkingTicket = new ParkingTicket();
